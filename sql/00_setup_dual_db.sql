@@ -1,0 +1,5 @@
+DROP DATABASE IF EXISTS jobs_db;
+DROP DATABASE IF EXISTS jobs_db_indexed;
+
+CREATE DATABASE jobs_db CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci;
+CREATE DATABASE jobs_db_indexed CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci;

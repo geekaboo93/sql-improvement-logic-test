@@ -1,0 +1,20 @@
+services:
+  mysql:
+    image: mysql:8.4
+    container_name: mysql-enhancement-test
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: jobs_db
+      MYSQL_USER: app
+      MYSQL_PASSWORD: app
+      TZ: UTC
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./sql:/docker-entrypoint-initdb.d:ro
+    command: [ "--character-set-server=utf8mb4", "--collation-server=utf8mb4_0900_ai_ci" ]
+
+volumes:
+  mysql_data:

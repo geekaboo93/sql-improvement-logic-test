@@ -1,0 +1,10 @@
+# DB and docker
+mysql_data/
+*.pid
+*.log
+
+# Exports
+*.csv
+
+# OS
+.DS_Store
