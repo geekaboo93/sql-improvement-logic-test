@@ -10,16 +10,6 @@ Two databases created to compare results and performance before and after improv
 - `jobs_db`: created with `sql/01_schema.sql` + `sql/02_seed.sql` (no extra indexes)
 - `jobs_db_indexed`: created with `sql/01_schema.sql` + `sql/02_seed.sql` + `sql/04_indexes.sql`
 
-## Workflow
-| Step | Activity | Time |
-| --- | --- | --- |
-| 1 | Analyze and planning | 20 mins |
-| 2 | AI agent to create schema, seeds and query, with Docker Compose setup | 15 mins |
-| 3 | Optimize the query | 20 mins |
-| 4 | Add necessary indexes for columns (best practices for high query volume) | 20 mins |
-| 5 | Manual test to quickly check the duration of original and optimized queries | 10 mins |
-| 6 | AI agent to provide commands to compare durations and generate CSV to validate identical results | 20 mins |
-
 ## Query files
 - `queries/03_query.sql`: original query (baseline)
 - `queries/03_query_optimized.sql`: optimized SQL (EXISTS-based)
@@ -76,6 +66,18 @@ Using: scripts/benchmark_queries.sh
 | original (jobs_db) | 1.844000 |
 | optimized (jobs_db) | 0.590000 |
 | optimized (jobs_db_indexed) | 0.102000 |
+
+## Workflow
+| Step | Activity | Time |
+| --- | --- | --- |
+| 1 | Analyze and planning | 20 mins |
+| 2 | AI agent to create schema, seeds and query, with Docker Compose setup | 15 mins |
+| 3 | Optimize the query | 20 mins |
+| 4 | Add necessary indexes for columns (best practices for high query volume) | 20 mins |
+| 5 | Manual test to quickly check the duration of original and optimized queries | 10 mins |
+| 6 | AI agent to provide commands to compare durations and generate CSV to validate identical results | 20 mins |
+
+Total time used - about 1 hour 45 mins
 
 ## Notes
 - Schema inferred from the provided query.
